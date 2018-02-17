@@ -2,21 +2,38 @@ package main
 
 import (
 	"fmt"
+	"math/rand"
+	"time"
 )
 
 func main() {
-	var board [9]int = [9]int{1, 2, 3, 4, 5, 6, 7, 8, 0}
+	var board [9]int
 	initBoard(&board)
+	printBoard(&board)
 }
 
 func initBoard(board *[9]int) {
-	for i, v := range board {
-		fmt.Printf("%d %d\n", i, v)
+	for i := 0; i < len(board)-1; i++ {
+		for {
+			rand.Seed(time.Now().UTC().UnixNano())
+			value := rand.Intn(len(board))
+			if !contains(board, value) {
+				board[i] = value
+				break
+			}
+		}
 	}
 }
 
 func printBoard(board *[9]int) {
-
+	for i, v := range board {
+		if i%3 == 0 {
+			fmt.Printf("\n")
+		} else {
+			fmt.Printf(" ")
+		}
+		fmt.Printf("%d", v)
+	}
 }
 
 func left(board *[9]int) {
@@ -33,4 +50,13 @@ func up(board *[9]int) {
 
 func down(board *[9]int) {
 
+}
+
+func contains(board *[9]int, e int) bool {
+	for _, v := range board {
+		if v == e {
+			return true
+		}
+	}
+	return false
 }
