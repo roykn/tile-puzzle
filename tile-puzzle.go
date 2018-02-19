@@ -18,7 +18,7 @@ func initBoard(board *[9]int) {
 		for {
 			rand.Seed(time.Now().UTC().UnixNano())
 			value := rand.Intn(len(board))
-			if !contains(board, value) {
+			if contains, _ := contains(board, value); !contains {
 				board[i] = value
 				break
 			}
@@ -39,8 +39,17 @@ func printBoard(board *[9]int) {
 }
 
 func left(board *[9]int) bool {
-	e := errors.New("Not implemented")
-	panic(e)
+	contains, pos := contains(board, 0)
+	if !contains {
+		panic("board do not contains 0.")
+	}
+
+	if pos%3 != 0 {
+		board[pos] = board[pos-1]
+		board[pos-1] = 0
+		return true
+	}
+	return false
 }
 
 func right(board *[9]int) bool {
@@ -58,11 +67,11 @@ func down(board *[9]int) bool {
 	panic(e)
 }
 
-func contains(board *[9]int, e int) bool {
-	for _, v := range board {
+func contains(board *[9]int, e int) (bool, int) {
+	for i, v := range board {
 		if v == e {
-			return true
+			return true, i
 		}
 	}
-	return false
+	return false, -1
 }
