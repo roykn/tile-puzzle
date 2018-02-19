@@ -1,6 +1,7 @@
 package main
 
 import (
+	"errors"
 	"fmt"
 	"math/rand"
 	"time"
@@ -37,20 +38,24 @@ func printBoard(board *[9]int) {
 	fmt.Printf("\n")
 }
 
-func left(board *[9]int) {
-
+func left(board *[9]int) bool {
+	e := errors.New("Not implemented")
+	panic(e)
 }
 
-func right(board *[9]int) {
-
+func right(board *[9]int) bool {
+	e := errors.New("Not implemented")
+	panic(e)
 }
 
-func up(board *[9]int) {
-
+func up(board *[9]int) bool {
+	e := errors.New("Not implemented")
+	panic(e)
 }
 
-func down(board *[9]int) {
-
+func down(board *[9]int) bool {
+	e := errors.New("Not implemented")
+	panic(e)
 }
 
 func contains(board *[9]int, e int) bool {
