@@ -34,6 +34,7 @@ func printBoard(board *[9]int) {
 		}
 		fmt.Printf("%d", v)
 	}
+	fmt.Printf("\n")
 }
 
 func left(board *[9]int) {
