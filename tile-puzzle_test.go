@@ -30,3 +30,14 @@ func TestInitBoard(t *testing.T) {
 		}
 	}
 }
+
+func TestLeft_is_possible(t *testing.T) {
+	board := [9]int{1, 2, 3, 4, 0, 6, 7, 8, 5}
+	if !left(&board) {
+		t.Error("Move left failed.")
+	}
+}
+
+func TestLeft_is_not_possible(t *testing.T) {
+
+}
