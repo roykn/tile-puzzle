@@ -74,3 +74,25 @@ func TestRight(t *testing.T) {
 		}
 	}
 }
+
+func TestUp(t *testing.T) {
+	tables := []struct {
+		input  [9]int
+		output [9]int
+		result bool
+	}{
+		{[9]int{1, 2, 3, 4, 5, 6, 7, 0, 8}, [9]int{1, 2, 3, 4, 0, 6, 7, 5, 8}, true},
+		{[9]int{1, 2, 3, 4, 0, 6, 7, 5, 8}, [9]int{1, 0, 3, 4, 2, 6, 7, 5, 8}, true},
+		{[9]int{1, 0, 3, 4, 2, 6, 7, 5, 8}, [9]int{1, 0, 3, 4, 2, 6, 7, 5, 8}, false},
+	}
+
+	for _, table := range tables {
+		result := up(&table.input)
+		if (table.input != table.output) && (result != table.result) {
+			t.Logf("up returned %t", result)
+			t.Log(table.input)
+			t.Log(table.output)
+			t.Error("Move up failed.")
+		}
+	}
+}
