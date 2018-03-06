@@ -9,6 +9,7 @@ import (
 func main() {
 	var board [9]int
 	initBoard(&board)
+	printInstructions()
 	printBoard(&board)
 }
 
@@ -23,6 +24,10 @@ func initBoard(board *[9]int) {
 			}
 		}
 	}
+}
+
+func printInstructions() {
+	fmt.Println("Use w, a, s, d to move the space up, left, right and down")
 }
 
 func printBoard(board *[9]int) {
