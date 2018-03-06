@@ -1,8 +1,10 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
 	"math/rand"
+	"os"
 	"time"
 )
 
@@ -10,7 +12,26 @@ func main() {
 	var board [9]int
 	initBoard(&board)
 	printInstructions()
-	printBoard(&board)
+
+	reader := bufio.NewReader(os.Stdin)
+	for {
+		printBoard(&board)
+		input, _ := reader.ReadString('\n')
+
+		if input == "w\n" {
+			up(&board)
+		}
+		if input == "a\n" {
+			left(&board)
+		}
+		if input == "s\n" {
+			down(&board)
+		}
+		if input == "d\n" {
+			right(&board)
+		}
+	}
+
 }
 
 func initBoard(board *[9]int) {
@@ -62,7 +83,9 @@ func right(board *[9]int) bool {
 		panic("board do not contains 0.")
 	}
 
-	if pos%5 != 0 {
+	if (pos <= 2 && pos%2 != 0) ||
+		(pos >= 3 && pos <= 5 && pos%5 != 0) ||
+		(pos >= 6 && pos%8 != 0) {
 		board[pos] = board[pos+1]
 		board[pos+1] = 0
 		return true
@@ -90,7 +113,7 @@ func down(board *[9]int) bool {
 		panic("board do not contains 0.")
 	}
 
-	if pos+3 <= len(board) {
+	if pos+3 < len(board) {
 		board[pos] = board[pos+3]
 		board[pos+3] = 0
 		return true
