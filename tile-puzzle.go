@@ -1,7 +1,6 @@
 package main
 
 import (
-	"errors"
 	"fmt"
 	"math/rand"
 	"time"
@@ -67,13 +66,31 @@ func right(board *[9]int) bool {
 }
 
 func up(board *[9]int) bool {
-	e := errors.New("Not implemented")
-	panic(e)
+	contains, pos := contains(board, 0)
+	if !contains {
+		panic("board do not contains 0.")
+	}
+
+	if pos-3 >= 0 {
+		board[pos] = board[pos-3]
+		board[pos-3] = 0
+		return true
+	}
+	return false
 }
 
 func down(board *[9]int) bool {
-	e := errors.New("Not implemented")
-	panic(e)
+	contains, pos := contains(board, 0)
+	if !contains {
+		panic("board do not contains 0.")
+	}
+
+	if pos+3 <= len(board) {
+		board[pos] = board[pos+3]
+		board[pos+3] = 0
+		return true
+	}
+	return false
 }
 
 func contains(board *[9]int, e int) (bool, int) {

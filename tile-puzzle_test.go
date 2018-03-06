@@ -96,3 +96,25 @@ func TestUp(t *testing.T) {
 		}
 	}
 }
+
+func TestDown(t *testing.T) {
+	tables := []struct {
+		input  [9]int
+		output [9]int
+		result bool
+	}{
+		{[9]int{1, 0, 2, 3, 4, 5, 6, 7, 8}, [9]int{1, 4, 2, 3, 0, 5, 6, 7, 8}, true},
+		{[9]int{1, 4, 2, 3, 0, 5, 6, 7, 8}, [9]int{1, 4, 2, 3, 7, 5, 6, 0, 8}, true},
+		{[9]int{1, 4, 2, 3, 7, 5, 6, 0, 8}, [9]int{1, 4, 2, 3, 7, 5, 6, 0, 8}, false},
+	}
+
+	for _, table := range tables {
+		result := down(&table.input)
+		if (table.input != table.output) && (result != table.result) {
+			t.Logf("up returned %t", result)
+			t.Log(table.input)
+			t.Log(table.output)
+			t.Error("Move up failed.")
+		}
+	}
+}
