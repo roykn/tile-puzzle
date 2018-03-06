@@ -53,8 +53,17 @@ func left(board *[9]int) bool {
 }
 
 func right(board *[9]int) bool {
-	e := errors.New("Not implemented")
-	panic(e)
+	contains, pos := contains(board, 0)
+	if !contains {
+		panic("board do not contains 0.")
+	}
+
+	if pos%5 != 0 {
+		board[pos] = board[pos+1]
+		board[pos+1] = 0
+		return true
+	}
+	return false
 }
 
 func up(board *[9]int) bool {
