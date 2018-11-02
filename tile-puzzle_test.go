@@ -39,7 +39,7 @@ func TestMove(t *testing.T) {
 		fn     func(*[9]int) bool
 		fnName string
 	}{
-		{[9]int{0, 1, 2, 3, 4, 5, 7, 8, 6}, [9]int{1, 0, 2, 3, 4, 5, 7, 8, 6}, true, left, "right"},
+		{[9]int{0, 1, 2, 3, 4, 5, 7, 8, 6}, [9]int{1, 0, 2, 3, 4, 5, 7, 8, 6}, true, left, "left"},
 		{[9]int{1, 2, 3, 4, 5, 0, 7, 8, 6}, [9]int{1, 2, 3, 4, 5, 0, 7, 8, 6}, true, left, "left"},
 		{[9]int{1, 2, 3, 4, 0, 5, 7, 8, 6}, [9]int{1, 2, 3, 0, 4, 5, 7, 8, 6}, true, left, "left"},
 		{[9]int{1, 2, 3, 0, 4, 5, 7, 8, 6}, [9]int{1, 2, 3, 0, 4, 5, 7, 8, 6}, false, left, "left"},
