@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	var board [9]int
+	board := [...]int{-1, -1, -1, -1, -1, -1, -1, -1, -1}
 	initBoard(&board)
 	printInstructions()
 
@@ -35,7 +35,7 @@ func main() {
 }
 
 func initBoard(board *[9]int) {
-	for i := 0; i < len(board)-1; i++ {
+	for i := 0; i < len(board); i++ {
 		for {
 			rand.Seed(time.Now().UTC().UnixNano())
 			value := rand.Intn(len(board))
