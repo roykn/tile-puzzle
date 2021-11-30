@@ -58,7 +58,12 @@ func printBoard(board *[9]int) {
 		} else {
 			fmt.Printf(" ")
 		}
-		fmt.Printf("%d", v)
+
+		if v == 0 {
+			fmt.Printf(" ")
+		} else {
+			fmt.Printf("%d", v)
+		}
 	}
 	fmt.Printf("\n")
 }
