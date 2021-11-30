@@ -5,9 +5,11 @@ This project is for learning purpose only. It's an implementation of the wellkno
 The goal is to solve the game by moving the space tile around with the WASD keys. The game is over if you're
 able to create the following state:
 
+```bash
 1 2 3
 4 5 6
 7 8
+```
 
 ## Usage
 In order o try it out yourself you have to follow the following steps:
