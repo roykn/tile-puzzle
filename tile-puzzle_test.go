@@ -31,6 +31,27 @@ func TestInitBoard(t *testing.T) {
 	}
 }
 
+func TestSolved(t *testing.T) {
+	tables := []struct {
+		input  [9]int
+		result bool
+		fn     func(*[9]int) bool
+		fnName string
+	}{
+		{[9]int{0, 1, 2, 3, 4, 5, 6, 7, 8}, true, solved, "solved"},
+		{[9]int{0, 1, 2, 3, 5, 4, 6, 7, 8}, false, solved, "solved"},
+	}
+
+	for _, table := range tables {
+		result := table.fn(&table.input)
+		if result != table.result {
+			t.Logf("%s returned %t", table.fnName, result)
+			t.Logf("expected output: %v", table.result)
+			t.Errorf("%v failed", table.fnName)
+		}
+	}
+}
+
 func TestMove(t *testing.T) {
 	tables := []struct {
 		input  [9]int

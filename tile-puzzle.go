@@ -30,6 +30,11 @@ func main() {
 		if input == "d\n" {
 			right(&board)
 		}
+
+		if solved(&board) {
+			fmt.Println("Well done! See you next time.")
+			break
+		}
 	}
 
 }
@@ -124,6 +129,16 @@ func down(board *[9]int) bool {
 		return true
 	}
 	return false
+}
+
+func solved(board *[9]int) bool {
+	for i, v := range board {
+		if v%9 != i+1 {
+			return false
+		}
+	}
+
+	return true
 }
 
 func contains(board *[9]int, e int) (bool, int) {
