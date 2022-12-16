@@ -1,6 +1,8 @@
 package main
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestContains(t *testing.T) {
 	board := [9]int{1, 2, 3, 4, 5, 6, 7, 8, 0}
@@ -17,7 +19,7 @@ func TestContains(t *testing.T) {
 }
 
 func TestInitBoard(t *testing.T) {
-	var board [9]int
+	board := [...]int{-1, -1, -1, -1, -1, -1, -1, -1, -1}
 	initBoard(&board)
 	t.Log(board)
 
