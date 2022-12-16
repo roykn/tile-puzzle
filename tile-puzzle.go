@@ -133,7 +133,7 @@ func down(board *[9]int) bool {
 
 func solved(board *[9]int) bool {
 	for i, v := range board {
-		if v%9 != i+1 {
+		if v%9 != i {
 			return false
 		}
 	}
