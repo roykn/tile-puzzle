@@ -141,7 +141,7 @@ func solved(board *[9]int) bool {
 	return true
 }
 
-func contains(board *[9]int, e int) (bool, int) {
+func contains(board *[9]int, e int) (contains bool, pos int) {
 	for i, v := range board {
 		if v == e {
 			return true, i
