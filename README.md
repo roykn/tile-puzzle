@@ -12,7 +12,7 @@ able to create the following state:
 ```
 
 ## Usage
-In order o try it out yourself you have to follow the following steps:
+In order to try it out yourself you have to follow the following steps:
 
 1. Clone the repo.
 ```bash
