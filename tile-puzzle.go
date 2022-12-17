@@ -88,17 +88,18 @@ func left(board *[9]int) bool {
 	return false
 }
 
+// 1 2 3 - 1 2 3
+// 4 0 5 - 0 4 5
+// 6 7 8 - 6 7 8
 func right(board *[9]int) bool {
 	contains, pos := contains(board, 0)
 	if !contains {
 		panic("board do not contains 0.")
 	}
 
-	if (pos <= 2 && pos%2 != 0) ||
-		(pos >= 3 && pos <= 5 && pos%5 != 0) ||
-		(pos >= 6 && pos%8 != 0) {
-		board[pos] = board[pos+1]
-		board[pos+1] = 0
+	if pos%3 != 0 {
+		board[pos] = board[pos-1]
+		board[pos-1] = 0
 		return true
 	}
 	return false
