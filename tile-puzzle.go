@@ -53,7 +53,7 @@ func initBoard(board *[9]int) {
 }
 
 func printInstructions() {
-	fmt.Println("Use w, a, s, d to move the space up, left, right and down")
+	fmt.Println("Use w, a, s, d to move the tiles up, left, right and down.")
 }
 
 func printBoard(board *[9]int) {
