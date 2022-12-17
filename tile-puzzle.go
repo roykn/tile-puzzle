@@ -79,11 +79,12 @@ func left(board *[9]int) bool {
 		panic("board do not contains 0.")
 	}
 
-	if pos%3 != 0 {
-		board[pos] = board[pos-1]
-		board[pos-1] = 0
+	if (pos+1)%3 != 0 {
+		board[pos] = board[pos+1]
+		board[pos+1] = 0
 		return true
 	}
+
 	return false
 }
 
