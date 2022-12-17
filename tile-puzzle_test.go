@@ -73,9 +73,9 @@ func TestMove(t *testing.T) {
 		{[9]int{9, 9, 9, 9, 0, 9, 9, 5, 9}, [9]int{9, 9, 9, 9, 5, 9, 9, 0, 9}, true, up, "5 moves up"},
 		{[9]int{9, 0, 9, 9, 2, 9, 9, 9, 9}, [9]int{9, 2, 9, 9, 0, 9, 9, 9, 9}, true, up, "2 moves up"},
 		{[9]int{1, 2, 3, 4, 5, 6, 7, 0, 8}, [9]int{1, 2, 3, 4, 5, 6, 7, 0, 8}, false, up, "nothing moves up"},
-		/*{[9]int{1, 0, 2, 3, 4, 5, 6, 7, 8}, [9]int{1, 0, 2, 3, 4, 5, 6, 7, 8}, false, down, "nothing moves down"},
+		{[9]int{1, 0, 2, 3, 4, 5, 6, 7, 8}, [9]int{1, 0, 2, 3, 4, 5, 6, 7, 8}, false, down, "nothing moves down"},
 		{[9]int{1, 4, 2, 3, 0, 5, 6, 7, 8}, [9]int{1, 0, 2, 3, 4, 5, 6, 7, 8}, true, down, "4 moves down"},
-		{[9]int{1, 4, 2, 3, 7, 5, 6, 0, 8}, [9]int{1, 4, 2, 3, 0, 5, 6, 7, 8}, true, down, "7 moves down"},*/
+		{[9]int{1, 4, 2, 3, 7, 5, 6, 0, 8}, [9]int{1, 4, 2, 3, 0, 5, 6, 7, 8}, true, down, "7 moves down"},
 	}
 
 	for _, table := range tables {
