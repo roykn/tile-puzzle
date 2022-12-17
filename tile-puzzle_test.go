@@ -40,7 +40,7 @@ func TestSolved(t *testing.T) {
 		fn     func(*[9]int) bool
 		fnName string
 	}{
-		{[9]int{0, 1, 2, 3, 4, 5, 6, 7, 8}, true, solved, "solved"},
+		{[9]int{1, 2, 3, 4, 5, 6, 7, 8, 0}, true, solved, "solved"},
 		{[9]int{0, 1, 2, 3, 5, 4, 6, 7, 8}, false, solved, "solved"},
 	}
 
