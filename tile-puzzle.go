@@ -3,7 +3,9 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"math/rand"
 	"os"
+	"time"
 )
 
 func main() {
@@ -41,9 +43,8 @@ func main() {
 func initBoard(board *[9]int) {
 	for i := 0; i < len(board); i++ {
 		for {
-			// rand.Seed(time.Now().UTC().UnixNano())
-			// value := rand.Intn(len(board))
-			value := i
+			rand.Seed(time.Now().UTC().UnixNano())
+			value := rand.Intn(len(board))
 			if contains, _ := contains(board, value); !contains {
 				board[i] = value
 				break
