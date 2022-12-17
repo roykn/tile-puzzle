@@ -2,7 +2,7 @@
 
 ## About the project
 This project is for learning purpose only. It's an implementation of the wellknown tile puzzle game in golang.
-The goal is to solve the game by moving the space tile around with the WASD keys. The game is over if you're
+The goal is to solve the game by moving the tiles around with the WASD keys. The game is over if you're
 able to create the following state:
 
 ```bash
